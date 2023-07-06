@@ -10,12 +10,13 @@ namespace DataAccessLayer
 {
     public class AppDbContext:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=.;Database=AspMultiLayerArc;Trusted_Connection=True;TrustServerCertificate=True");
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer(@"Server=.;Database=AspMultiLayerArc;Trusted_Connection=True;TrustServerCertificate=True");
 
-        }
+        //}
         public DbSet<Categorys> Categories { get; set; }
     }
 }
